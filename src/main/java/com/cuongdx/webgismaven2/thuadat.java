@@ -36,7 +36,7 @@ public class thuadat extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet thuadat thu xem duocj khohng</title>");            
+            out.println("<title>Servlet thuadat xem the nao nao</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet thuadat at " + request.getContextPath() + "</h1>");
