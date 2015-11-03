@@ -9,5 +9,11 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+           <a href="login/login.jsp">aaaa</a>
+           <form action="ThuaDatjsv" method="get">
+               <input name="test" type="text">
+               <input type="submit" value="ok">
+               
+           </form>
     </body>
 </html>

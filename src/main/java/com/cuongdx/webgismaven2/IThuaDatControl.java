@@ -9,11 +9,6 @@ package com.cuongdx.webgismaven2;
  *
  * @author Administrator
  */
-public class ThuaDat {
-    public int ThuaID ;
-    public int XaID;
-    public int SHBANDO;
-    public int SHTHUA;
-    public float DIENTICH;
-    public String TENCHU;
+public interface IThuaDatControl {
+    public void getThuaDat() ;
 }

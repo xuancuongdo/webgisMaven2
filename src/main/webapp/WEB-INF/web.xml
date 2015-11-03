@@ -5,9 +5,33 @@
         <servlet-name>thuadat</servlet-name>
         <servlet-class>com.cuongdx.webgismaven2.thuadat</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>com.cuongdx.webgismaven2.NewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ThuaDatjsv</servlet-name>
+        <servlet-class>com.cuongdx.webgismaven2.ThuaDatjsv</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>thuadat2</servlet-name>
+        <servlet-class>ThuaDat2.serverlets</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>thuadat</servlet-name>
         <url-pattern>/thuadat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThuaDatjsv</servlet-name>
+        <url-pattern>/ThuaDatjsv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>thuadat2</servlet-name>
+        <url-pattern>/thuadat2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
