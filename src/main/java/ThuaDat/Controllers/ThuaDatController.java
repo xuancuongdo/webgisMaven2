@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ThuaDat2;
+package ThuaDat.Controllers;
 
+import com.cuongdx.models.IThuaDatControl;
+import com.cuongdx.models.ThuaDatControl;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrator
  */
-public class serverlets extends HttpServlet {
+public class ThuaDatController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -59,18 +62,7 @@ public class serverlets extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter writer= response.getWriter();
-       
-        writer.println("ssss");
-        writer.println("<!DOCTYPE html>");
-            writer.println("<html>");
-            writer.println("<head>");
-            writer.println("<title>Servlet serverlets</title>");            
-            writer.println("</head>");
-            writer.println("<body>");
-            writer.println("<h1>Servlet serverlets at " + request.getContextPath() + "</h1>");
-            writer.println("</body>");
-            writer.println("</html>");
+
 //         processRequest(request, response);
     }
 
@@ -85,7 +77,11 @@ public class serverlets extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+        IThuaDatControl objThuaDat= new ThuaDatControl();
+        objThuaDat.getThuaDat();
+        RequestDispatcher dispatcher=request.getRequestDispatcher("notification");
+        dispatcher.forward(request, response);
     }
 
     /**
