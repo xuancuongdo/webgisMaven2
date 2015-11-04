@@ -1,44 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>webgisMaven2</display-name>
+    <!--servlet mapping-->
     <servlet>
-        <servlet-name>thuadat</servlet-name>
-        <servlet-class>com.cuongdx.webgismaven2.thuadat</servlet-class>
+        <servlet-name>ThuaDat</servlet-name>
+        <servlet-class>ThuaDat.Controllers.ThuaDatController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>NewServlet</servlet-name>
-        <servlet-class>com.cuongdx.webgismaven2.NewServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ThuaDatjsv</servlet-name>
-        <servlet-class>com.cuongdx.webgismaven2.ThuaDatjsv</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>thuadat2</servlet-name>
-        <servlet-class>ThuaDat2.serverlets</servlet-class>
-    </servlet>
+   
     <servlet-mapping>
-        <servlet-name>thuadat</servlet-name>
+        <servlet-name>ThuaDat</servlet-name>
         <url-pattern>/thuadat</url-pattern>
     </servlet-mapping>
+    
+    
+    <!--end servlet mapping-->
+    
+    <!--jsp mapping-->
+    <servlet>
+        <servlet-name>index page</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>NewServlet</servlet-name>
-        <url-pattern>/NewServlet</url-pattern>
+        <servlet-name>index page</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>login page</servlet-name>
+        <jsp-file>/login/login.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>ThuaDatjsv</servlet-name>
-        <url-pattern>/ThuaDatjsv</url-pattern>
+        <servlet-name>login page</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>login notification</servlet-name>
+        <jsp-file>/login/notification.jsp</jsp-file>
+    </servlet>
+    
     <servlet-mapping>
-        <servlet-name>thuadat2</servlet-name>
-        <url-pattern>/thuadat2</url-pattern>
+        <servlet-name>login notification</servlet-name>
+        <url-pattern>/notification</url-pattern>
     </servlet-mapping>
+    <!--end jsp mapping-->
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        
+        <welcome-file>home</welcome-file>
     </welcome-file-list>
 </web-app>
