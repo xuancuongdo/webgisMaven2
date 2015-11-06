@@ -5,23 +5,21 @@
  */
 package ThuaDat.Controllers;
 
-import com.cuongdx.models.IThuaDatControl;
-import com.cuongdx.models.ThuaDatControl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Administrator
+ * @author cuongdx
  */
-public class ThuaDatController extends HttpServlet {
+public class login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +39,10 @@ public class ThuaDatController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet serverlets</title>");
+            out.println("<title>Servlet login</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet serverlets at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -64,12 +62,25 @@ public class ThuaDatController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ServletContext context = this.getServletContext();
-        ServletConfig config = this.getServletConfig();
-        String song = context.getInitParameter("songALL");
-        PrintWriter write = response.getWriter();
-        write.println(song);
-//         processRequest(request, response);
+        HttpSession session = request.getSession();
+        Boolean loged;
+        Cookie co= new Cookie("ten", "aaa");
+            response.addCookie(co);
+        loged = (Boolean) session.getAttribute("loged");
+        if (loged != null && loged==true) {
+            response.sendRedirect("index.jsp");
+            for(Cookie c: request.getCookies())
+            {
+                System.out.println(c.getName());
+                System.out.println(c.getValue());
+            }
+            
+            
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/login/login.jsp");
+            dispatcher.forward(request, response);
+        }
+
     }
 
     /**
@@ -83,13 +94,7 @@ public class ThuaDatController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
-        IThuaDatControl objThuaDat = new ThuaDatControl();
-        objThuaDat.getThuaDat();
-        RequestDispatcher dispatcher;
-        dispatcher = request.getRequestDispatcher("/notification");
-        request.setAttribute("image", "baby");
-        dispatcher.forward(request, response);
+        processRequest(request, response);
     }
 
     /**

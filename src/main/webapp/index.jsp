@@ -10,19 +10,7 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-           <a href="login/login.jsp">aaaa</a>
-           <form action="thuadat" method="post">
-               <input name="test" type="text">
-               <input type="submit" value="ok">
-               
-           </form>
-           <%
-               out.print("aaa");
-               int i=0;
-               ArrayList list= new ArrayList();
-               
-           %>
-           <%=i%>
-           <jsp:text >dgdsaga</jsp:text>
+           <a href="login">login form</a>
+           <a href="" 
     </body>
 </html>
