@@ -2,59 +2,33 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>webgisMaven2</display-name>
     <context-param>
-        <param-name>songALL</param-name>
-        <param-value>this is love</param-value>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
-    <servlet>
-        <servlet-name>ThuaDat</servlet-name>
-        <servlet-class>ThuaDat.Controllers.ThuaDatController</servlet-class>
-        <init-param>
-            <param-name>song</param-name>
-            <param-value>you're beautifule</param-value>
-        </init-param>
-    </servlet>
-    <servlet>
-        <servlet-name>index page</servlet-name>
-        <jsp-file>/index.jsp</jsp-file>
-    </servlet>
-    <servlet>
-        <servlet-name>UserController</servlet-name>
-        <servlet-class>ThuaDat.Controllers.UserController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>notification</servlet-name>
-        <servlet-class>ThuaDat.Controllers.notification</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>login</servlet-name>
-        <servlet-class>ThuaDat.Controllers.login</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ThuaDat</servlet-name>
-        <url-pattern>/thuadat</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>index page</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UserController</servlet-name>
-        <url-pattern>/User</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>notification</servlet-name>
-        <url-pattern>/notification</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>login</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
+    
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <!--        <welcome-file>index.jsp</welcome-file>-->
+        <welcome-file>redirect.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
