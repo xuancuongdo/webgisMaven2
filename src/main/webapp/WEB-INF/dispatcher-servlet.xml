@@ -47,7 +47,7 @@ xsi:schemaLocation="
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
 
- <context:component-scan base-package="controller" />
+ <context:component-scan base-package="Controllers" />
  
        <mvc:annotation-driven />
 </beans>

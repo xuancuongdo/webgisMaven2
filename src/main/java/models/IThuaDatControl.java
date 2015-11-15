@@ -5,10 +5,19 @@
  */
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Administrator
  */
 public interface IThuaDatControl {
     public void getThuaDat() ;
+
+    /**
+     *
+     * @return
+     */
+    public ArrayList<ThuaDat> getListThuaDat();
 }

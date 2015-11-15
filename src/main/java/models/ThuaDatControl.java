@@ -6,6 +6,8 @@
 package models;
 
 import static java.lang.System.out;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,4 +27,9 @@ public class ThuaDatControl implements IThuaDatControl{
             out.println("</html>");
             
     }
+
+    public ArrayList<ThuaDat> getListThuaDat() {
+        return null;
+    }
+    
 }
